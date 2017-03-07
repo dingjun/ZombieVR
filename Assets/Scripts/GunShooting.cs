@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Shooting : MonoBehaviour {
+public class GunShooting : MonoBehaviour {
 
 	public ParticleSystem vfx;		// shooting impact vfx
 
@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour {
 				vfx.Play();
 
 				if (hit.transform.tag == "Zombie") {
-					Destroy(hit.transform.gameObject);
+					hit.transform.GetComponent<ZombieAI>().Die();
 				}
 			}
 		}

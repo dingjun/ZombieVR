@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour {
 	void Spawn () {
 		GameObject zombieObj = Instantiate(zombie, transform.position, transform.rotation) as GameObject;
 		zombieObj.transform.parent = transform;
-		zombieObj.GetComponent<ZombieNavigation>().target = player;
+		zombieObj.GetComponent<ZombieAI>().target = player;
 		
 		Invoke("Spawn", spawnInterval + Random.Range(-spawnVariance, spawnVariance));
 	}
