@@ -6,7 +6,7 @@ public class ZombieAI : MonoBehaviour {
 
 	Rigidbody rb;
 	Animator am;
-	Collider cl;
+	Collider cl;                        // head collider
 	UnityEngine.AI.NavMeshAgent agent;
 
 	void Start () {
@@ -20,6 +20,7 @@ public class ZombieAI : MonoBehaviour {
 		float sqrSpeed = rb.velocity.sqrMagnitude;
 		am.SetFloat("sqrSpeed", sqrSpeed);
 
+		// attack if close to target
 		float distance = Mathf.Abs(transform.position.x - target.position.x);
 		if (distance < 2.5f) {
 			am.SetBool("attack", true);
@@ -32,8 +33,8 @@ public class ZombieAI : MonoBehaviour {
 
 	public void Die () {
 		am.SetTrigger("die");
-		cl.enabled = false;
-		agent.Stop();
+		cl.enabled = false;         // prevent getting shot again
+		agent.Stop();               // stop moving
 		Destroy(gameObject, 1f);
 	}
 }

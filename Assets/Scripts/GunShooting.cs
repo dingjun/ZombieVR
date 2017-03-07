@@ -2,7 +2,7 @@
 
 public class GunShooting : MonoBehaviour {
 
-	public ParticleSystem vfx;		// shooting impact vfx
+	public ParticleSystem vfx;      // shooting impact vfx
 
 	AudioSource shootingAudio;
 
